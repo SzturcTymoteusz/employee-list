@@ -1,0 +1,10 @@
+<div class="container" *ngIf="open | async" (click)="clickOnOverlay()">
+  <div class="dialog" (click)="clickOnDialog($event)">
+    <div class="title">{{title}}</div>
+    <div class="content">{{content}}</div>
+    <div class="button-actions">
+      <button class="confirm" (click)="onClose($event, true)">{{confirmationActionLabel}}</button>
+      <button class="cancel" (click)="onClose($event,false)">{{cancelActionLabel}}</button>
+    </div>
+  </div>
+</div>

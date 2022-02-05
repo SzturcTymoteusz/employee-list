@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="content">
+    <div class="basic-information">
+      <div class="header">Basic information</div>
+      <div class="information">
+        <div class="image-wrapper">
+          <img [src]="employee.avatarUrl" alt="Employee avatar">
+        </div>
+        <div class="personal-information">
+          <div class="name property">
+            <span class="key">Name: </span>
+            <span class="value">{{employee.name}}</span>
+          </div>
+          <div class="company property">
+            <span class="key">Company: </span>
+            <span class="value">{{employee.company}}</span>
+          </div>
+          <div class="email property">
+            <span class="key">Email: </span>
+            <span class="value">{{employee.email}}</span>
+          </div>
+          <div class="phone property">
+            <span class="key">Phone: </span>
+            <span class="value">{{employee.phone}}</span>
+          </div>
+          <div class="address property">
+            <span class="key">Address: </span>
+            <span class="value">{{employee.address}}</span>
+          </div>
+          <div class="createdAt property">
+            <span class="key">Created at: </span>
+            <span class="value">{{employee.createdAt | transformToDate}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="description">
+      <div class="header">Description</div>
+      <span class="about"> {{employee.about}} </span>
+      <div class="tags" *ngIf="employee.tags.length !== 0">
+        <ng-container *ngFor="let tag of employee.tags">
+          <div class="tag">{{tag}}</div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

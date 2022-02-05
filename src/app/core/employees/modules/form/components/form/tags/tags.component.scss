@@ -1,0 +1,75 @@
+@import "../../../../../../../../styles/colors";
+
+.container {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+
+  .label {
+    position: absolute;
+    top: -5px;
+    left: 12px;
+    padding: 0 5px;
+    font-size: 10px;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  .tags {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .tag {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 24px 6px 12px;
+      text-align: center;
+      min-width: 50px;
+      border-radius: 10px;
+      background-color: $additional-color;
+      color: white;
+      margin: 0 12px 12px 0;
+      position: relative;
+      top: 0;
+      left: 0;
+      box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+
+      .close {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .add-input {
+    input {
+      width: 200px;
+      padding: 6px;
+      border-radius: 5px;
+      margin-right: 6px;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+      outline: none !important;
+      box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+
+      &:focus {
+        border: 2px solid rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .add {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

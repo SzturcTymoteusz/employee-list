@@ -1,0 +1,9 @@
+<div class="container">
+  <button [disabled]="form.form.invalid || form.form.pending"
+          [ngClass]="{disabled: form.form.invalid || form.form.pending}"
+          (click)="saveForm.save()"
+          type="button"
+  >
+    {{ isEditing ? 'Edit' : 'Add'}}
+  </button>
+</div>

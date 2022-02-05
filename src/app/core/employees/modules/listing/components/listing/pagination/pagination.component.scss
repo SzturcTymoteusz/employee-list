@@ -1,0 +1,76 @@
+@import "../../../../../../../../styles/colors";
+
+.container {
+  height: 64px;
+  padding: 12px;
+  background-color: $listing-bg;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.7);
+
+  .items-per-page {
+    .title {
+      margin-right: 12px;
+    }
+
+    select {
+      height: 30px;
+      padding: 0 6px;
+      margin-right: 12px;
+      color: rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+      border: 2px solid rgba(0, 0, 0, 0.25);
+      outline: none !important;
+      box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+
+      &:focus {
+        border: 2px solid rgba(0, 0, 0, 0.6);
+      }
+    }
+  }
+
+  .button-actions {
+    margin-left: 12px;
+    display: flex;
+
+    .first-page {
+      i:last-of-type {
+        position: relative;
+        left: -3px;
+        margin: 0
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .prev, .next {
+      margin: 0 6px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .last-page {
+      i:first-of-type {
+        position: relative;
+        left: 3px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.inactive {
+  color: rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    cursor: auto !important;
+  }
+}

@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="items-per-page">
+    <span class="title">Items per page</span>
+    <select [formControl]="paginationForm.itemsPerPage">
+      <ng-container *ngFor="let pageSize of paginationSettings.defaultPageSizeOptions">
+        <option [value]="pageSize">{{pageSize}}</option>
+      </ng-container>
+    </select>
+  </div>
+  <div class="range">
+    <span>{{paginationSettings.settings.startItemIndex}}</span>
+    <span *ngIf="paginationSettings.settings.endItemIndex">- {{paginationSettings.settings.endItemIndex}}</span>
+    <span> of {{paginationSettings.settings.totalItems}}</span>
+  </div>
+  <div class="button-actions">
+    <div class="first-page" [ngClass]="{inactive: !paginationSettings.settings.hasPrevPage}"
+         (click)="pageChange.goFirstPage()">
+      <i class="fas fa-chevron-left"></i>
+      <i class="fas fa-chevron-left"></i>
+    </div>
+    <i class="fas fa-chevron-left prev" [ngClass]="{inactive: !paginationSettings.settings.hasPrevPage}"
+       (click)="pageChange.goPrevPage()"></i>
+    <i class="fas fa-chevron-right next" [ngClass]="{inactive: !paginationSettings.settings.hasNextPage}"
+       (click)="pageChange.goNextPage()"></i>
+    <div class="last-page" [ngClass]="{inactive: !paginationSettings.settings.hasNextPage}"
+         (click)="pageChange.goLastPage()">
+      <i class="fas fa-chevron-right"></i>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+</div>

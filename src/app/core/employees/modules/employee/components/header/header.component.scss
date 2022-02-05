@@ -1,0 +1,33 @@
+@import "../../../../../../../styles/colors";
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+
+  .title {
+    font-size: 32px;
+    line-height: 56px;
+    margin-right: 24px;
+  }
+
+  .button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      padding: 12px;
+      border: none;
+      color: #ffffff;
+      background-color: $main-color;
+      border-radius: 5px;
+      box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: $dimmed-main-color;
+    }
+  }
+}

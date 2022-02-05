@@ -1,0 +1,116 @@
+<div class="container">
+  <form class="form" [formGroup]="form.form">
+    <div class="row">
+      <div class="input-wrapper">
+        <div class="label">Name</div>
+        <input [formControl]="form.name" placeholder="Name">
+        <div
+          class="error"
+          *ngIf="form.name.touched && form.name.dirty && form.name.invalid && form.name.hasError('required')"
+        >
+          Name is required
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <div class="label">Company</div>
+        <input [formControl]="form.company" placeholder="Company">
+        <div
+          class="error"
+          *ngIf="form.company.touched && form.company.dirty && form.company.invalid && form.company.hasError('required')"
+        >
+          Company is required
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-wrapper">
+        <div class="label">Email</div>
+        <input [formControl]="form.email" placeholder="Email">
+        <div
+          class="error"
+          *ngIf="form.email.touched && form.email.dirty && form.email.invalid && !form.email.pending && form.email.hasError('required')"
+        >
+          Email is required
+        </div>
+        <div
+          class="error"
+          *ngIf="form.email.touched && form.email.dirty && form.email.invalid && !form.email.pending  && form.email.hasError('email') && !form.email.hasError('required')"
+        >
+          Email is invalid
+        </div>
+        <div
+          class="error"
+          *ngIf="form.email.invalid && !form.email.pending && form.email.hasError('emailUniqueness') && !form.email.hasError('email')"
+        >
+          Email is not unique
+        </div>
+        <div
+          class="pending"
+          *ngIf="(form.email.statusChanges | async) === 'PENDING'"
+        >
+          <i class="fas fa-sync-alt rotate"></i> Email validation checking
+        </div>
+      </div>
+      <div class="input-wrapper">
+        <div class="label">Phone</div>
+        <input [formControl]="form.phone" placeholder="Phone">
+        <div
+          class="error"
+          *ngIf="form.phone.touched && form.phone.dirty && form.phone.invalid && form.phone.hasError('required')"
+        >
+          Phone is required
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-wrapper">
+        <div class="label">Avatar url</div>
+        <input [formControl]="form.avatarUrl" placeholder="Avatar url">
+        <div
+          class="error"
+          *ngIf="form.avatarUrl.touched && form.avatarUrl.dirty && form.avatarUrl.invalid && form.avatarUrl.hasError('required')"
+        >
+          Avatar url is required
+        </div>
+        <div
+          class="error"
+          *ngIf="form.avatarUrl.touched && form.avatarUrl.dirty && form.avatarUrl.invalid && form.avatarUrl.hasError('url') && !form.avatarUrl.hasError('required')"
+        >
+          Avatar url is invalid
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-wrapper">
+        <div class="label">Address</div>
+        <input [formControl]="form.address" placeholder="Address">
+        <div
+          class="error"
+          *ngIf="form.address.touched && form.address.dirty && form.address.invalid && form.address.hasError('required')"
+        >
+          Address is required
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-wrapper">
+        <div class="label">About</div>
+        <textarea [formControl]="form.about" placeholder="About" rows="10" cols="10"></textarea>
+        <div
+          class="error"
+          *ngIf="form.about.touched && form.about.dirty && form.about.invalid && form.about.hasError('required')"
+        >
+          Field about is required
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-wrapper">
+        <app-tags [formControl]="form.tags" label="Tags"></app-tags>
+      </div>
+    </div>
+
+    <app-button-actions [isEditing]="!!form.id.value"></app-button-actions>
+  </form>
+
+</div>

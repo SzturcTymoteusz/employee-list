@@ -1,0 +1,5 @@
+<div class="container">
+  <app-search *ngIf="isOpenSearch.isOpen | async"></app-search>
+  <app-table [employees]="employees"></app-table>
+  <app-pagination></app-pagination>
+</div>

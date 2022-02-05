@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="label">{{label}}</div>
+  <div class="tags">
+    <ng-container *ngFor="let tag of tags">
+      <div class="tag">
+        <span class="name">{{tag}}</span>
+        <i class="fas fa-times close" (click)="removeTag(tag)"></i>
+      </div>
+    </ng-container>
+  </div>
+  <div class="add-input">
+    <input #addInput placeholder="Add tag">
+    <i class="fas fa-plus add" (click)="addTag(addInput.value)"></i>
+  </div>
+</div>

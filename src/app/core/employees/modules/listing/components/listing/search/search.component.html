@@ -1,0 +1,16 @@
+<div class="container">
+  <form class="form" [formGroup]="searchForm.form">
+    <div class="input-wrapper">
+      <div class="label">Name</div>
+      <input [formControl]="searchForm.name">
+    </div>
+    <div class="input-wrapper">
+      <div class="label">Company</div>
+      <input [formControl]="searchForm.company">
+    </div>
+  </form>
+  <div class="button-actions">
+    <button class="reset" (click)="searchForm.reset()">reset</button>
+    <button class="search" (click)="setSearchSettings.set()">search</button>
+  </div>
+</div>
