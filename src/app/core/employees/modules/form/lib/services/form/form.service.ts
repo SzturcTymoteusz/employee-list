@@ -10,7 +10,7 @@ export class FormService implements Form {
   private _form = new FormGroup({
     name: new FormControl(null, [Validators.required]),
     company: new FormControl(null, [Validators.required]),
-    avatarUrl: new FormControl('http://placehold.it/32x32', [Validators.required, url()]),
+    avatarUrl: new FormControl('https://placehold.it/32x32', [Validators.required, url()]),
     email: new FormControl(null, [Validators.required, Validators.email], [emailUniqueness(this.manageDataStore.checkEmailUniqueness())]),
     phone: new FormControl(null, [Validators.required]),
     tags: new FormControl([]),
