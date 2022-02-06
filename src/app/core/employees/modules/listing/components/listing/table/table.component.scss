@@ -1,123 +1,169 @@
 @import "../../../../../../../../styles/colors";
 
-.table {
-  width: 100%;
-  border-spacing: 0;
+.container {
+  position: relative;
+  top: 0;
+  left: 0;
 
-  th, td {
-    height: 64px;
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  .table {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 160px);
+    border-spacing: 0;
+    overflow-x: scroll;
   }
 
-  th {
-    background-color: $listing-bg;
-    font-size: 12px;
-    color: rgba(0, 0, 0, 0.8);
-
-    &.sort {
-      &:hover {
-        cursor: pointer;
-      }
-    }
-  }
-
-  td {
-    font-size: 14px;
-
-    &.name {
-      cursor: pointer;
-    }
-  }
-
-  .avatar {
-    width: 62px;
-
-    .img-wrapper {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        width: 32px;
-        height: 32px;
-      }
-    }
-  }
-
-  .name {
-    width: 300px;
-  }
-
-  .actions {
+  .action-table {
+    display: flex;
+    flex-direction: column;
     width: 160px;
+    border-spacing: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .row {
     position: relative;
     top: 0;
     left: 0;
+    display: flex;
 
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 4px;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, .05) 57%, rgba(0, 0, 0, .10) 100%);
-    }
-
-    .icon {
-      font-size: 32px;
-      position: relative;
-      top: 2px;
-      left: 55px;
-      color: rgba(0, 0, 0, 0.5);
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    .buttons-container {
+    th, td {
+      height: 64px;
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
+    }
 
-      button {
-        padding: 10px;
-        border: none;
-        color: #ffffff;
-        border-radius: 5px;
-        box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+    th {
+      background-color: $listing-bg;
+      font-size: 12px;
+      color: rgba(0, 0, 0, 0.8);
 
-        &.edit {
-          background-color: $main-color;
+      &.sort {
+        &:hover {
+          cursor: pointer;
         }
+      }
+    }
 
-        &.remove {
-          background-color: $additional-color;
+    td {
+      font-size: 14px;
+
+      &.name {
+        cursor: pointer;
+      }
+    }
+
+    .avatar {
+      width: 62px;
+      min-width: 62px;
+      max-width: 62px;
+
+      .img-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+
+    .name {
+      width: 200px;
+      min-width: 200px;
+      max-width: 200px;
+    }
+
+    .company {
+      min-width: 200px;
+      flex-grow: 1;
+    }
+
+    .actions {
+      width: 160px;
+      min-width: 160px;
+      max-width: 160px;
+      position: sticky;
+      top: 0;
+      right: -160px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, .05) 57%, rgba(0, 0, 0, .10) 100%);
+      }
+
+      .icon {
+        font-size: 32px;
+        position: relative;
+        top: 2px;
+        left: 55px;
+        color: rgba(0, 0, 0, 0.5);
+
+        &:hover {
+          cursor: pointer;
         }
       }
 
-      button:hover {
-        cursor: pointer;
+      &.actions-ceil {
+        display: flex;
+        background-color: #ffffff;
 
-        &.edit {
-          background-color: $dimmed-main-color;
-        }
+        .buttons-container {
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
 
-        &.remove {
-          background-color: $dimmed-additional-color;
+          button {
+            padding: 10px;
+            border: none;
+            color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 7px 6px 15px -6px rgba(66, 68, 90, 1);
+
+            &.edit {
+              background-color: $main-color;
+            }
+
+            &.remove {
+              background-color: $additional-color;
+            }
+          }
+
+          button:hover {
+            cursor: pointer;
+
+            &.edit {
+              background-color: $dimmed-main-color;
+            }
+
+            &.remove {
+              background-color: $dimmed-additional-color;
+            }
+          }
         }
       }
     }
   }
-}
 
-.no-content {
-  height: 64px;
-  padding: 0 12px;
-  line-height: 64px;
+  .no-content {
+    height: 64px;
+    padding: 0 12px;
+    line-height: 64px;
+  }
+
 }

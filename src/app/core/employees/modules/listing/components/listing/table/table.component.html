@@ -1,51 +1,62 @@
-<table class="table">
-  <tr>
-    <th class="avatar">Avatar</th>
-    <th class="name sort" (click)="setActiveSortSettings.set('name')">
-      Name
-      <span *ngIf="sortSettings.settings.sortColumnIndex === 'name'">
+<div class="container">
+  <table class="table">
+    <tr class="row">
+      <th class="avatar">Avatar</th>
+      <th class="name sort" (click)="setActiveSortSettings.set('name')">
+        Name
+        <span *ngIf="sortSettings.settings.sortColumnIndex === 'name'">
         <i class="fas fa-arrow-up" *ngIf="sortSettings.settings.sortDirection === 'asc'"></i>
         <i class="fas fa-arrow-down" *ngIf="sortSettings.settings.sortDirection === 'desc'"></i>
       </span>
-    </th>
-    <th class="company sort" (click)="setActiveSortSettings.set('company')">
-      Company
-      <span *ngIf="sortSettings.settings.sortColumnIndex === 'company'">
+      </th>
+      <th class="company sort" (click)="setActiveSortSettings.set('company')">
+        Company
+        <span *ngIf="sortSettings.settings.sortColumnIndex === 'company'">
         <i class="fas fa-arrow-up" *ngIf="sortSettings.settings.sortDirection === 'asc'"></i>
         <i class="fas fa-arrow-down" *ngIf="sortSettings.settings.sortDirection === 'desc'"></i>
       </span>
-    </th>
-    <th class="actions">
-      <span class="icon" (click)="isOpenSearch.toggle()">
-        <i class="fas fa-search"></i>
-      </span>
-    </th>
-  </tr>
-  <ng-container *ngFor="let employee of employees">
+      </th>
+    </tr>
+    <ng-container *ngFor="let employee of employees">
+      <tr class="row">
+        <td class="avatar">
+          <div class="img-wrapper">
+            <img [src]="employee.avatarUrl" alt="avatar">
+          </div>
+        </td>
+        <td class="name" [routerLink]="'/employee/'+employee.id">{{employee.name}}</td>
+        <td class="company">{{employee.company}}</td>
+      </tr>
+    </ng-container>
+  </table>
+  <table class="action-table">
+    <tr class="row">
+      <th class="actions">
+          <span class="icon" (click)="isOpenSearch.toggle()">
+            <i class="fas fa-search"></i>
+          </span>
+      </th>
+    </tr>
+    <ng-container *ngFor="let employee of employees">
+      <tr class="row">
+        <td class="actions actions-ceil">
+          <div class="buttons-container">
+            <button class="edit" [routerLink]="'/employee/form/'+employee.id">edit</button>
+            <button class="remove" (click)="openRemoveConfirmationDialog(employee.id)">remove</button>
+          </div>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+  <ng-container *ngIf="employees.length === 0">
     <tr>
-      <td class="avatar">
-        <div class="img-wrapper">
-          <img [src]="employee.avatarUrl" alt="avatar">
-        </div>
-      </td>
-      <td class="name" [routerLink]="'/employee/'+employee.id">{{employee.name}}</td>
-      <td class="company">{{employee.company}}</td>
-      <td class="actions">
-        <div class="buttons-container">
-          <button class="edit" [routerLink]="'/employee/form/'+employee.id">edit</button>
-          <button class="remove" (click)="openRemoveConfirmationDialog(employee.id)">remove</button>
-        </div>
+      <td class="no-content">
+        No matching records have been found
       </td>
     </tr>
   </ng-container>
-</table>
-<ng-container *ngIf="employees.length === 0">
-  <tr>
-    <td class="no-content">
-      No matching records have been found
-    </td>
-  </tr>
-</ng-container>
-<app-confirmation-dialog [open]="isOpen.asObservable()" (close)="onClose($event)"
-                         content='Are you sure you want to remove?'
-                         title="Remove"></app-confirmation-dialog>
+  <app-confirmation-dialog [open]="isOpen.asObservable()" (close)="onClose($event)"
+                           content='Are you sure you want to remove?'
+                           title="Remove"></app-confirmation-dialog>
+
+</div>
